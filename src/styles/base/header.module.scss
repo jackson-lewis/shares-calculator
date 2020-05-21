@@ -1,0 +1,28 @@
+
+// Get all settings [This outputs no css]
+@import '../settings/settings';
+
+
+header.site-header {
+    padding: 2rem;
+    display: block;
+
+    background-color: $black;
+}
+
+.logo {
+    margin: 0 auto;
+    display: block;
+
+    text-align: center;
+
+    svg {
+        transition: 200ms;
+    }
+
+    &:hover {
+        svg {
+            fill: $white
+        }
+    }
+}

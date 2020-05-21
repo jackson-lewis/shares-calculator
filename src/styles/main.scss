@@ -1,0 +1,17 @@
+/*
+    main.scss
+
+    * This is the main CSS bundle
+    * Typically only global styles should be included
+    * For template or component specific styling, use a .module.scss file
+*/
+
+
+// Get all settings [This outputs no css]
+@import 'settings/settings';
+
+// Normalize [https://necolas.github.io/normalize.css/]
+@import 'base/normalize';
+
+// The most top-level styling
+@import 'base/core';

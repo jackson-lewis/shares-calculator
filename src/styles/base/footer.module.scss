@@ -1,0 +1,15 @@
+
+// Get all settings [This outputs no css]
+@import '../settings/settings';
+
+
+// The styling...
+
+footer.site-footer {
+    padding: 0 2rem 6rem;
+
+    p {
+        color: $grey;
+        text-align: center;
+    }
+}
