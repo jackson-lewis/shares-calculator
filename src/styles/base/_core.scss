@@ -61,7 +61,7 @@ body, input, textarea, button, select {
     font-weight: 400;
     font-style: normal;
 
-    color: $white; 
+    color: $primary; 
 }
 
 p {
@@ -86,35 +86,7 @@ a {
     @include last-child;
 }
 
-.link-arrow {
-    margin-bottom: get_baseline( 20 );
-    padding-right: 3.2rem;
-    display: inline-block;
-    position: relative;
 
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: $white;
-    text-decoration: none;
-
-    @include after {
-        width: 1.6rem;
-        height: 100%;
-        top: 0;
-        right: 0.6rem;
-
-        background: url( ../images/link-arrow.svg ) no-repeat center;
-
-        transition: 200ms;
-    }
-
-    &:hover,
-    &:focus {
-        @include after( false ) {
-            transform: translateX( .6rem );
-        }
-    }
-}
 
 strike {
     color: darken( $white, 20% );
@@ -127,21 +99,4 @@ hr {
 
     background-color: $primary;
     border: none;
-}
-
-.button-primary {
-    padding: 1rem 1.5rem;
-    display: inline-block;
-
-    border-radius: .4rem;
-    background-color: $primary;
-    color: $white;
-    text-align: center;
-    text-decoration: none;
-
-    transition: 300ms;
-
-    &:hover {
-        background-color: rgba( $primary, .8 );
-    }
 }

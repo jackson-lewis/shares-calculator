@@ -34,9 +34,9 @@ module.exports = {
     {
         resolve: `gatsby-plugin-web-font-loader`,
         options: {
-            typekit: { id: `` },
-            classes: false,
-            events: false
+            google: {
+                families: [ `Montserrat:300,400` ]
+            }
         }
     }
   ],

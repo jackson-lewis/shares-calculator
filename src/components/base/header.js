@@ -15,7 +15,7 @@ const Header = () => (
     <header className={ Styles.siteHeader }>
         <div className={ Styles.container }>
             <Link to={ `/` } className={ Styles.logo } aria-label={ 'Home' }>
-                Jackson.
+                Shares Calculator
             </Link>
         </div>
     </header>

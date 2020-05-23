@@ -10,17 +10,15 @@ import React from "react"
 import PropTypes from "prop-types"
 
 // Core components
-import Header from "./header"
-import Footer from "./footer"
+// import Header from "./header"
+// import Footer from "./footer"
 
 
 const Layout = ({ children }) => {
 
     return (
         <>
-            <Header />
             <main className={ 'site-main' }>{children}</main>
-            <Footer />
         </>
     )
 }
