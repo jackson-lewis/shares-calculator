@@ -6,7 +6,6 @@
  * Here is a list of things that would improve the experience and/or functionality of the app:
  * @todo Support for commission fees. User would need to be able to set the fees cost. Bonus: save previous value to localStorage.
  * @todo Allow number of shares sold to differ from shares bought. A conditional would be required to prevent shares sold to be greater than shares bought.
- * @todo Add a reset button.
  * @todo Just a thought. Put extraDetails value in localStorage, as some users may always prefer the details to be shown.
  */
 
