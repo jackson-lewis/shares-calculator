@@ -1,6 +1,4 @@
 /**
- * index.js
- * 
  * The App, this is an SPA
  * 
  * Here is a list of things that would improve the experience and/or functionality of the app:
@@ -60,8 +58,6 @@ const Page = () => {
 
 
     /**
-     * toPounds
-     * 
      * Utility function to convert a value from pence to pounds
      * 
      * @param {int} value The value to convert to pounds
@@ -72,8 +68,6 @@ const Page = () => {
 
 
     /**
-     * formatCurrency
-     * 
      * Utility to take a value and convert to integar and force 
      * 2 decimal points.
      * 
@@ -85,8 +79,6 @@ const Page = () => {
 
 
     /**
-     * handleCalcChange
-     * 
      * The main function to update the return values from user input.
      * 
      * There is no 'submit', so values are updated on input change
@@ -130,8 +122,6 @@ const Page = () => {
 
 
     /**
-     * reset
-     * 
      * Reset the prices and shares, all totals and return values
      * will be recalculated to zero.
      */
@@ -152,8 +142,6 @@ const Page = () => {
     useEffect( () => {
 
         /**
-         * getOrderSubTotal
-         * 
          * Get the subtotal of an order. The reason this is marked as the subtotal
          * and not the actual total is because the returned value is before an fees
          * such as stamp duty has been applied. Any such fees should be manually applied
