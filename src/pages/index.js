@@ -37,6 +37,9 @@ const Page = () => {
     const [ buyShares, setBuyShares ] = useState( `` )
     const [ sellShares, setSellShares ] = useState( `` )
 
+    // Tells the app whether or not the sell shares has been manually set
+    const [ hasSetSellShares, setHasSetSellShares ] = useState( false )
+
     // bool
     const [ incStampDuty, willIncStampDuty ] = useState( false )
 
@@ -100,7 +103,13 @@ const Page = () => {
 
             case `buy_shares`:
                 setBuyShares( value )
-                setSellShares( value )
+
+                // For as long as the sell_shares input isn't changed by the user, 
+                // update sellShares with buyShares value
+                if ( ! hasSetSellShares ) {
+                    setSellShares( value )
+                }
+                
                 break;
 
             case `sell_price`:
@@ -108,7 +117,10 @@ const Page = () => {
                 break;
 
             case `sell_shares`:
-                setSellShares( value )
+                // Makes sure the user can't sell more shares than they've bought
+                setSellShares( value > buyShares ? buyShares : value )
+
+                setHasSetSellShares( true )
                 break;    
 
             case `inc_tax`:
@@ -171,7 +183,11 @@ const Page = () => {
         setStampDuty( formatCurrency( ( toPounds( buyPrice ) * buyShares * 0.005 ) ) )
         
         // Super easy value to calculate, hence being a one-liner
-        setReturnValue( formatCurrency( sellTotal - buyTotal ) )
+        setReturnValue( () => {
+            if ( sellPrice === `` ) return 0
+
+            return formatCurrency( sellTotal - ( buyTotal / ( buyShares / sellShares ) ) )
+        } )
 
         // Calculating the return percentage takes a little more work
         setReturnPercent( () => {
@@ -181,7 +197,7 @@ const Page = () => {
             if ( buyTotal === `0.00` ) return 0
 
             // Multiplying by 100 converts the value to a percentage
-            return formatCurrency( ( returnValue / buyTotal ) * 100 )
+            return formatCurrency( ( ( sellPrice - ( incStampDuty ? buyPrice * 1.005 : buyPrice ) ) / buyPrice ) * 100 )
         })
 
     }, [ buyPrice, buyShares, sellPrice, sellShares, incStampDuty, stampDuty, buyTotal, sellTotal, returnValue ] )
@@ -212,7 +228,7 @@ const Page = () => {
                         
                         <div className={ Styles.field }>
                             <label htmlFor="sell_shares">Shares</label>
-                            <input type="text" pattern="[0-9]*" name="sell_shares" id="sell_shares" placeholder="500" autoComplete="off" disabled value={ buyShares } onChange={ handleCalcChange } />
+                            <input type="text" pattern="[0-9]*" name="sell_shares" id="sell_shares" placeholder="500" autoComplete="off" value={ sellShares } onChange={ handleCalcChange } />
                         </div>
                     </div>
                     
